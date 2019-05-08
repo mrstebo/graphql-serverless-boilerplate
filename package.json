@@ -1,0 +1,57 @@
+{
+  "name": "graphql-serverless-boilerplate",
+  "version": "1.0.0",
+  "description": "A boilerplate for spinning up a serverless GraphQL API",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/sls offline start",
+    "test": "./node_modules/.bin/mocha --colors --recursive --reporter spec ./tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrstebo/graphql-serverless-boilerplate.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "graphql",
+    "api"
+  ],
+  "author": {
+    "name": "Steven Atkinson",
+    "email": "mrstebouk@gmail.com",
+    "url": "http://mrstebo.co.uk"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrstebo/graphql-serverless-boilerplate/issues"
+  },
+  "homepage": "https://github.com/mrstebo/graphql-serverless-boilerplate#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "husky": "^2.2.0",
+    "lint-staged": "^8.1.6",
+    "mocha": "^6.1.4",
+    "serverless-offline": "^4.10.0"
+  },
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./node_modules/.bin/lint-staged",
+      "pre-push": "yarn test"
+    }
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "./node_modules/.bin/eslint --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "apollo-server-lambda": "^2.5.0",
+    "graphql": "^14.3.0",
+    "serverless": "^1.41.1"
+  }
+}
