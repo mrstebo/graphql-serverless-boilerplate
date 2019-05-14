@@ -12,4 +12,5 @@ const base = gql`
 
 module.exports = [
   base,
+  require("./modules/products/typeDef"),
 ];

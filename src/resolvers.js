@@ -7,6 +7,9 @@ const base = {
   },
 };
 
+const productsResolver = require("./modules/products/resolver");
+
 module.exports = {
   ...base,
+  ...productsResolver,
 };
