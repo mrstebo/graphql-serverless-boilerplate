@@ -52,6 +52,7 @@
   "dependencies": {
     "apollo-server-lambda": "^2.5.0",
     "graphql": "^14.3.0",
+    "lodash": "^4.17.11",
     "serverless": "^1.41.1"
   }
 }

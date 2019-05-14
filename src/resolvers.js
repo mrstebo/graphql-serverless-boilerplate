@@ -1,3 +1,5 @@
+const _ = require("lodash");
+
 const base = {
   Query: {
     serverTime: () => new Date(),
@@ -9,7 +11,7 @@ const base = {
 
 const productsResolver = require("./modules/products/resolver");
 
-module.exports = {
-  ...base,
-  ...productsResolver,
-};
+module.exports = _.merge(
+  base,
+  productsResolver,
+);
