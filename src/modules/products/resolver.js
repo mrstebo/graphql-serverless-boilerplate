@@ -1,33 +1,28 @@
-const MOCK_PRODUCTS = [...Array(10).keys()].map(i => ({
-  id: i+1,
-  name: `Product #${i+1}`,
-  description: "This is a description",
-  price: (Math.random() * 100).toFixed(2),
-  hidden: Math.random() > 0.5,
-}));
-let id = 11;
-
 module.exports = {
   Query: {
-    getProducts: () => MOCK_PRODUCTS,
-    getProduct: (_, { id }) => MOCK_PRODUCTS.find(p => p.id === id),
+    getProducts: (_root, _args, { Products }) => Products.find(),
+    getProduct: (_, { id }, { Products }) => Products.get(id),
   },
   Mutation: {
-    addProduct: (_, { input }) => {
-      const newItem = { id: id++, ...input };
-      MOCK_PRODUCTS.push(newItem);
+    addProduct: (_, { input }, { Products }) => {
+      const newItem = Products.insert(input);
       return newItem;
     },
-    updateProduct: (_, { id, input }) => {
-      const index = MOCK_PRODUCTS.findIndex(p => p.id === id);
-      MOCK_PRODUCTS[index] = { ...MOCK_PRODUCTS[index], input };
-      return MOCK_PRODUCTS[index];
+    updateProduct: (_, { id, input }, { Products }) => {
+      const item = Products.get(id);
+      const updatedItem = Products.update({
+        ...item,
+        ...input,
+      });
+      return updatedItem;
     },
-    deleteProduct: (_, { id }) => {
-      const index = MOCK_PRODUCTS.findIndex(p => p.id === id);
-      const item = { ...MOCK_PRODUCTS[index] };
-      delete MOCK_PRODUCTS[index];
-      return item;
+    deleteProduct: (_, { id }, { Products }) => {
+      const item = Products.get(id);
+      Products.remove(item);
+      return { $loki: id, ...item };
     },
+  },
+  Product: {
+    id: product => product["$loki"],
   },
 };
