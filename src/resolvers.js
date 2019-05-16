@@ -9,9 +9,7 @@ const base = {
   },
 };
 
-const productsResolver = require("./modules/products/resolver");
-
 module.exports = _.merge(
   base,
-  productsResolver,
+  require("./modules/products/resolver"),
 );
