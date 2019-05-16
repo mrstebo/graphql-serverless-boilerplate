@@ -18,7 +18,7 @@ const server = new ApolloServer({
   context: async () => {
     await loadDatabase();
     return {
-      Products: db.getCollection("Products"),
+      Products: db.addCollection("Products"),
     };
   },
   playground: {
