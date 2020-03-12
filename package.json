@@ -53,7 +53,7 @@
     "apollo-server-lambda": "^2.5.0",
     "graphql": "^14.3.0",
     "lodash": "^4.17.13",
-    "lokijs": "^1.5.6",
+    "lokijs": "^1.5.8",
     "serverless": "^1.41.1"
   }
 }
