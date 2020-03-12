@@ -50,7 +50,7 @@
     ]
   },
   "dependencies": {
-    "apollo-server-lambda": "^2.5.0",
+    "apollo-server-lambda": "^2.11.0",
     "graphql": "^14.3.0",
     "lodash": "^4.17.13",
     "lokijs": "^1.5.6",
