@@ -52,7 +52,7 @@
     ]
   },
   "dependencies": {
-    "apollo-server-lambda": "^2.14.2",
+    "apollo-server-lambda": "^3.0.0",
     "graphql": "^14.3.0",
     "lodash": "^4.17.19",
     "lokijs": "^1.5.6",
