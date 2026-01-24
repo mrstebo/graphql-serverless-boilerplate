@@ -54,9 +54,9 @@
   "dependencies": {
     "apollo-server-lambda": "^2.14.2",
     "graphql": "^14.3.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.23",
     "lokijs": "^1.5.6",
-    "serverless": "^1.41.1",
+    "serverless": "^2.0.0",
     "snyk": "^1.316.1"
   },
   "snyk": true
